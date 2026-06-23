@@ -1,0 +1,64 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+import Search from 'virtual:starlight/components/Search';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+import siteConfig from '../../generated/site-config.json';
+
+const props = Astro.props as Props;
+const homepageHref = import.meta.env.BASE_URL || '/';
+---
+
+<div class="foam-sidebar-header">
+  <div class="foam-sidebar-title-row">
+    <a href={homepageHref} class="foam-site-title">{siteConfig.title ?? 'Foam Site'}</a>
+    <ThemeSelect />
+  </div>
+  <Search />
+</div>
+
+<Default {...props} />
+
+<style>
+  .foam-sidebar-header {
+    border-bottom: 1px solid var(--sl-color-hairline-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 1rem var(--sl-sidebar-pad-x) 0.75rem;
+  }
+
+  .foam-sidebar-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .foam-site-title {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .foam-site-title:hover {
+    color: var(--sl-color-text-accent);
+  }
+
+  .foam-sidebar-header :global(site-search),
+  .foam-sidebar-header :global(button[data-open-modal]) {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .foam-sidebar-title-row :global(starlight-theme-select select) {
+    width: 0rem !important;
+    padding-inline-end: 0 !important;
+  }
+
+  .foam-sidebar-title-row :global(starlight-theme-select .caret) {
+    display: none;
+  }
+</style>

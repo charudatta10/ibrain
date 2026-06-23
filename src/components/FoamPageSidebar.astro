@@ -1,0 +1,162 @@
+---
+import MobileTableOfContents from 'virtual:starlight/components/MobileTableOfContents';
+import TableOfContents from 'virtual:starlight/components/TableOfContents';
+import siteConfig from '../../generated/site-config.json';
+
+const { toc } = Astro.locals.starlightRoute;
+
+const basePath = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const currentRoute = basePath && pathname.startsWith(basePath)
+  ? pathname.slice(basePath.length) || '/'
+  : pathname;
+const selectedRoute =
+  currentRoute === '/' && siteConfig.homepageRoute
+    ? siteConfig.homepageRoute
+    : currentRoute;
+---
+
+<>
+  {toc && (
+    <div class="lg:sl-hidden">
+      <MobileTableOfContents />
+    </div>
+  )}
+
+  <div class="right-sidebar-panel sl-hidden lg:sl-block">
+    <div class="sl-container">
+      <foam-graph
+        class="foam-sidebar-graph"
+        data-current-route={selectedRoute}
+      ></foam-graph>
+
+      {toc && <TableOfContents />}
+    </div>
+  </div>
+</>
+
+<script>
+  import '../lib/foam-graph.js';
+
+  const readCssVar = name =>
+    getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const basePath = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+
+  const buildGraphStyle = () => ({
+    colorMode: 'none',
+    showNodesOfType: {
+      note: true,
+      tag: false,
+      placeholder: false,
+      image: false,
+      attachment: false,
+    },
+    style: {
+      background: readCssVar('--sl-color-bg-nav') || '#111827',
+      fontFamily: 'inherit',
+      fontSize: 8,
+      lineColor:
+        readCssVar('--sl-color-text') ||
+        readCssVar('--sl-color-text-secondary') ||
+        '#94a3b8',
+      lineWidth: 0.8,
+      particleWidth: 3,
+      highlightedForeground:
+        readCssVar('--sl-color-text-accent') || '#38bdf8',
+      node: {
+        note:
+          readCssVar('--sl-color-text') ||
+          readCssVar('--sl-color-white') ||
+          '#e5e7eb',
+        placeholder: readCssVar('--sl-color-text-secondary') || '#64748b',
+        tag:
+          readCssVar('--sl-color-text-accent') ||
+          readCssVar('--sl-color-accent-high') ||
+          '#38bdf8',
+      },
+    },
+  });
+
+  const graphDataPromise = fetch(basePath + '/foam-graph.json').then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to load published graph data.');
+    }
+    return response.json();
+  });
+
+  const initGraph = async graph => {
+    try {
+      const currentRoute = graph.dataset.currentRoute;
+      const graphData = await graphDataPromise;
+
+      graph.graphData = graphData;
+      graph.graphStyle = buildGraphStyle();
+      graph.focusNodeId = currentRoute;
+      graph.graphScope = { depth: 1 };
+      graph.maxFitZoom = 1.4;
+      graph.labels = 'always';
+      graph.forces = { collide: 3, repel: 400, link: 50, velocityDecay: 0.4 };
+      graph.linkWidthMultiplier = 1.5;
+      graph.selection = { neighborDepth: 1, centerOnSelect: false, zoomOnSelect: false };
+
+      await graph.updateComplete;
+      if (currentRoute && graphData.nodeInfo[currentRoute]) {
+        graph.selectNote(currentRoute);
+      }
+
+      const themeObserver = new MutationObserver(() => {
+        graph.graphStyle = buildGraphStyle();
+      });
+      themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'data-theme'],
+      });
+
+      graph.addEventListener('node-click', event => {
+        if (event.detail !== currentRoute) {
+          window.location.assign(basePath + event.detail);
+        }
+      });
+    } catch (error) {
+      graph.hidden = true;
+      console.error('Failed to initialize the Foam graph sidebar.', error);
+    }
+  };
+
+  document
+    .querySelectorAll('.foam-sidebar-graph')
+    .forEach(graph => void initGraph(graph));
+</script>
+
+<style>
+  .right-sidebar-panel {
+    padding: 1rem var(--sl-sidebar-pad-x);
+  }
+
+  .sl-container {
+    width: calc(var(--sl-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
+  }
+
+  .foam-sidebar-graph {
+    border: 1px solid var(--sl-color-hairline-light);
+    border-radius: 0.75rem;
+    display: block;
+    height: clamp(12rem, 28vh, 14rem);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  @media (min-width: 72rem) {
+    .sl-container {
+      max-width: calc(
+        (
+          (
+              100vw - var(--sl-sidebar-width) - 2 * var(--sl-content-pad-x) - 2 *
+                var(--sl-sidebar-pad-x)
+            ) * 0.25
+        )
+      );
+    }
+  }
+</style>
