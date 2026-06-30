@@ -1,0 +1,34 @@
+site_name: Notes & Wiki
+site_url: https://charudatta10.github.io/wiki-notes/
+repo_url: https://github.com/charudatta10/wiki-notes
+repo_name: charudatta10/wiki-notes
+
+theme:
+  name: flatly
+  locale: en
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Wiki: wiki.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tasklist
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/charudatta10
+    - icon: fontawesome/solid/envelope
+      link: mailto:charudatta.korde@nfsu.ac.in
+
+copyright: Copyright &copy; 2026 Dr. Charudatta Gurudas Korde
+
+plugins:
+  - search

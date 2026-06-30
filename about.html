@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Charudatta Gurudas Korde - Resume</title>
+
+<style>
+:root{
+    --bg:#ffffff;
+    --surface:#f5f5f5;
+    --text:#111111;
+    --muted:#555555;
+    --border:#dcdcdc;
+    --shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.6;
+    padding:30px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.header{
+    padding:30px;
+    border:2px solid #000;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.5rem;
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+.subtitle{
+    font-size:1.1rem;
+    color:var(--muted);
+    margin-top:8px;
+}
+
+.contact{
+    margin-top:15px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    font-size:.95rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: 320px 1fr;
+    gap:20px;
+}
+
+.card{
+    background:var(--surface);
+    padding:20px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:1.1rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:15px;
+    border-bottom:2px solid #000;
+    padding-bottom:5px;
+}
+
+.item{
+    margin-bottom:18px;
+}
+
+.item-title{
+    font-weight:700;
+}
+
+.item-subtitle{
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+ul{
+    padding-left:18px;
+}
+
+li{
+    margin-bottom:6px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill{
+    border:1px solid #000;
+    padding:6px 10px;
+    font-size:.85rem;
+    background:#fff;
+}
+
+.profile{
+    text-align:justify;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.stat{
+    border:1px solid #000;
+    padding:10px;
+    text-align:center;
+    background:#fff;
+}
+
+.stat h3{
+    font-size:1.3rem;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:var(--muted);
+    font-size:.9rem;
+}
+
+@media print{
+    body{
+        padding:0;
+    }
+    .card{
+        box-shadow:none;
+    }
+}
+
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Dr. Charudatta Gurudas Korde</h1>
+        <div class="subtitle">
+            Lecturer • Researcher • Cyber Security • Digital Forensics • AI • FPGA • VLSI
+        </div>
+
+        <div class="contact">
+            <div>📧 charudatta.korde@nfsu.ac.in</div>
+            <div>📍 India</div>
+            <div>🎓 Ph.D. Scholar, NIT Goa</div>
+            <div>🏫 NFSU Dharwad Campus</div>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <!-- LEFT COLUMN -->
+        <div>
+
+            <div class="card">
+                <div class="section-title">Profile</div>
+                <div class="profile">
+                    Academic professional with expertise in Cyber Security,
+                    Digital Forensics, Artificial Intelligence, FPGA-based
+                    Computing, VLSI Design, and Generative AI. Experienced in
+                    teaching undergraduate and postgraduate courses, mentoring
+                    student projects, conducting interdisciplinary research,
+                    and developing AI-driven solutions for forensic and security
+                    applications.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Core Skills</div>
+
+                <div class="skills">
+                    <span class="skill">Cyber Security</span>
+                    <span class="skill">Digital Forensics</span>
+                    <span class="skill">Artificial Intelligence</span>
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">Deep Learning</span>
+                    <span class="skill">GANs</span>
+                    <span class="skill">FPGA</span>
+                    <span class="skill">VLSI</span>
+                    <span class="skill">Verilog</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">PyTorch</span>
+                    <span class="skill">Linux</span>
+                    <span class="skill">Blockchain</span>
+                    <span class="skill">Digital Signal Processing</span>
+                    <span class="skill">Research Writing</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Research Areas</div>
+
+                <ul>
+                    <li>Cyber Security & Digital Forensics</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Generative Adversarial Networks</li>
+                    <li>Explainable AI</li>
+                    <li>FPGA Acceleration</li>
+                    <li>Reconfigurable Computing</li>
+                    <li>Edge AI Systems</li>
+                    <li>Blockchain Applications</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Highlights</div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <h3>8+</h3>
+                        <p>Years Research</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>2+</h3>
+                        <p>Years Teaching</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>3</h3>
+                        <p>Q1 Journals</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>6+</h3>
+                        <p>Conferences</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+    <div class="section-title">Important Links</div>
+
+    <ul style="list-style:none;padding-left:0;">
+
+        <li style="margin-bottom:10px;">
+            <strong>GitHub</strong><br>
+            <a href="https://github.com/charudatta10" target="_blank">
+                github.com/charudatta10
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>Portfolio</strong><br>
+            <a href="https://charudatta10.github.io/portfolio/" target="_blank">
+                charudatta10.github.io/portfolio
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>Knowledge Wiki</strong><br>
+            <a href="https://charudatta10.github.io/wiki-notes/#/" target="_blank">
+                charudatta10.github.io/wiki-notes
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>Email</strong><br>
+            <a href="mailto:charudatta.korde@nfsu.ac.in">
+                charudatta.korde@nfsu.ac.in
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>Google Scholar</strong><br>
+            <a href="#" target="_blank">
+                Add Scholar Profile Link
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>ORCID</strong><br>
+            <a href="#" target="_blank">
+                Add ORCID Link
+            </a>
+        </li>
+
+        <li style="margin-bottom:10px;">
+            <strong>LinkedIn</strong><br>
+            <a href="#" target="_blank">
+                Add LinkedIn Profile Link
+            </a>
+        </li>
+
+        <li>
+            <strong>Research Interests</strong><br>
+            Cyber Security • Digital Forensics • AI • FPGA • VLSI • GANs
+        </li>
+
+    </ul>
+</div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+
+            <div class="card">
+                <div class="section-title">Professional Experience</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        Lecturer, Department of Cyber Security & Digital Forensics
+                    </div>
+                    <div class="item-subtitle">
+                        National Forensic Sciences University (NFSU), Dharwad
+                    </div>
+
+                    <ul>
+                        <li>Teaching undergraduate and postgraduate courses.</li>
+                        <li>Guiding student projects and dissertations.</li>
+                        <li>Research in AI-driven cybersecurity and forensic systems.</li>
+                        <li>Curriculum development and academic administration.</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        Visiting Faculty
+                    </div>
+                    <div class="item-subtitle">
+                        Goa Polytechnic College
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <div class="section-title">Education</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        Ph.D. in VLSI & Reconfigurable Computing
+                    </div>
+                    <div class="item-subtitle">
+                        National Institute of Technology (NIT) Goa
+                    </div>
+                    <p>Thesis Submitted</p>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        M.Tech. in Microelectronics
+                    </div>
+                    <div class="item-subtitle">
+                        2015 – 2017 | 80%
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        B.E. in Electrical & Electronics Engineering
+                    </div>
+                    <div class="item-subtitle">
+                        2011 – 2015 | 76%
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Research Contributions</div>
+
+                <ul>
+                    <li>Hybrid Evolutionary Optimization GAN (HEO-GAN)</li>
+                    <li>Evolutionary Wavelet GAN (EWGAN)</li>
+                    <li>MFDFA-GAN for image generation quality enhancement</li>
+                    <li>2D-MFDFA based GAN architectures</li>
+                    <li>FPGA implementation of AI models using AMD Xilinx platforms</li>
+                    <li>Hardware-aware optimization of deep learning models</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Publications & Mentoring</div>
+
+                <ul>
+                    <li>3 Q1 Journal Publications</li>
+                    <li>6+ International Conference Publications</li>
+                    <li>1 Journal Article Under Communication</li>
+                    <li>Guided 5 Master's Students</li>
+                    <li>Reviewer and Academic Contributor</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Technical Stack</div>
+
+                <ul>
+                    <li>Python, PyTorch, NumPy, Pandas</li>
+                    <li>FPGA, Verilog HDL, Vivado</li>
+                    <li>Linux, Git, Docker</li>
+                    <li>Machine Learning & Deep Learning</li>
+                    <li>Blockchain & Distributed Systems</li>
+                    <li>Data Analysis & Visualization</li>
+                </ul>
+            </div>
+            <div> <img src="assets/img.png"  style="width:100%; height:auto;" alt="Description of image"></div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 • Dr. Charudatta Gurudas Korde
+    </div>
+
+</div>
+
+</body>
+</html>
