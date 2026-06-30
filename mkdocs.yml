@@ -1,10 +1,10 @@
 site_name: Notes & Wiki
-site_url: https://charudatta10.github.io/wiki-notes/
-repo_url: https://github.com/charudatta10/wiki-notes
-repo_name: charudatta10/wiki-notes
+site_url: https://github.com/charudatta10/ibrain
+repo_url: https://github.com/charudatta10/ibrain
+repo_name: charudatta10/ibrain
 
 theme:
-  name: flatly
+  name: readthedocs
   locale: en
 
 nav:
